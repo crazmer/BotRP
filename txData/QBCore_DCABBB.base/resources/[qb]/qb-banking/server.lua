@@ -271,8 +271,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:deposit', function(source, cb
     if Accounts[accountName] then
         local job = Player.PlayerData.job
         local gang = Player.PlayerData.gang
-        if Accounts[accountName].account_type == 'job' and (job.name ~= accountName or not job.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
-        if Accounts[accountName].account_type == 'gang' and (gang.name ~= accountName or not gang.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[accountName].account_type == 'job' and job.name ~= accountName then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[accountName].account_type == 'gang' and gang.name ~= accountName then return cb({ success = false, message = Lang:t('error.access') }) end
         if Player.PlayerData.money.cash < depositAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         Player.RemoveMoney('cash', depositAmount, 'bank account: ' .. accountName .. ' deposit')
         if not AddMoney(accountName, depositAmount) then return cb({ success = false, message = Lang:t('error.error') }) end
