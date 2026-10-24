@@ -223,8 +223,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:withdraw', function(source, c
     local src = source
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
-    local accountName = data.accountName
     if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    local accountName = data.accountName
     local withdrawAmount = validMoneyAmount(data.amount)
     if not withdrawAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'Bank Withdrawal'
@@ -285,9 +285,12 @@ QBCore.Functions.CreateCallback('qb-banking:server:internalTransfer', function(s
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
     local job = Player.PlayerData.job
     local gang = Player.PlayerData.gang
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
     local fromAccountName = data.fromAccountName
     local toAccountName = data.toAccountName
-    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(fromAccountName) ~= 'string' or type(toAccountName) ~= 'string' then return cb({ success = false, message = Lang:t('error.error') }) end
+    if fromAccountName ~= 'checking' and not Accounts[fromAccountName] then return cb({ success = false, message = Lang:t('error.access') }) end
+    if toAccountName ~= 'checking' and not Accounts[toAccountName] then return cb({ success = false, message = Lang:t('error.access') }) end
     local transferAmount = validMoneyAmount(data.amount)
     if not transferAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'Internal transfer'
@@ -327,11 +330,13 @@ QBCore.Functions.CreateCallback('qb-banking:server:externalTransfer', function(s
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
     local job = Player.PlayerData.job
     local gang = Player.PlayerData.gang
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
     local toAccountName = data.toAccountNumber
     local toPlayer = exports['qb-core']:GetPlayerByCitizenId(toAccountName)
     if not toPlayer then return cb({ success = false, message = Lang:t('error.error') }) end
     local fromAccountName = data.fromAccountName
-    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(fromAccountName) ~= 'string' then return cb({ success = false, message = Lang:t('error.error') }) end
+    if fromAccountName ~= 'checking' and not Accounts[fromAccountName] then return cb({ success = false, message = Lang:t('error.access') }) end
     local transferAmount = validMoneyAmount(data.amount)
     if not transferAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'External transfer'
