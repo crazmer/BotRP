@@ -44,9 +44,12 @@ QBCore.Functions.CreateCallback('test:getdealers', function(_, cb)
 end)
 
 -- Get Players
-QBCore.Functions.CreateCallback('test:getplayers', function(_, cb) -- WORKS
-    local players = GetQBPlayers()
-    cb(players)
+QBCore.Functions.CreateCallback('test:getplayers', function(src, cb)
+    if not (QBCore.Functions.HasPermission(src, 'admin') or QBCore.Functions.HasPermission(src, 'god') or IsPlayerAceAllowed(src, 'command')) then
+        cb({})
+        return
+    end
+    cb(GetQBPlayers())
 end)
 
 QBCore.Functions.CreateCallback('qb-admin:isAdmin', function(src, cb) -- WORKS
@@ -87,8 +90,8 @@ end
 -- Events
 RegisterNetEvent('qb-admin:server:GetPlayersForBlips', function()
     local src = source
-    local players = GetQBPlayers()
-    TriggerClientEvent('qb-admin:client:Show', src, players)
+    if not (QBCore.Functions.HasPermission(src, 'admin') or QBCore.Functions.HasPermission(src, 'god') or IsPlayerAceAllowed(src, 'command')) then return end
+    TriggerClientEvent('qb-admin:client:Show', src, GetQBPlayers())
 end)
 
 RegisterNetEvent('qb-admin:server:kill', function(player)
