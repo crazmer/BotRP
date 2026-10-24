@@ -2,6 +2,13 @@ local QBCore = exports['qb-core']:GetCoreObject({ 'Functions', 'Commands', 'Shar
 local Accounts = {}
 local Statements = {}
 
+local function validMoneyAmount(value)
+    local amount = tonumber(value)
+    if not amount or amount ~= amount or amount == math.huge or amount == -math.huge then return nil end
+    if amount <= 0 or amount > 100000000 then return nil end
+    return amount
+end
+
 -- Functions
 
 local function getPlayerAndCitizenId(playerId)
@@ -93,6 +100,8 @@ end
 exports('CreateBankStatement', CreateBankStatement)
 
 local function AddMoney(accountName, amount, reason)
+    amount = validMoneyAmount(amount)
+    if not amount then return false end
     if not reason then reason = 'External Deposit' end
     local newStatement = {
         amount = amount,
@@ -115,6 +124,8 @@ exports('AddMoney', AddMoney)
 exports('AddGangMoney', AddMoney)
 
 local function RemoveMoney(accountName, amount, reason)
+    amount = validMoneyAmount(amount)
+    if not amount then return false end
     if not reason then reason = 'External Withdrawal' end
     local newStatement = {
         amount = amount,
@@ -213,7 +224,9 @@ QBCore.Functions.CreateCallback('qb-banking:server:withdraw', function(source, c
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
     local accountName = data.accountName
-    local withdrawAmount = tonumber(data.amount)
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    local withdrawAmount = validMoneyAmount(data.amount)
+    if not withdrawAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'Bank Withdrawal'
     if accountName == 'checking' then
         local accountBalance = Player.PlayerData.money.bank
@@ -226,8 +239,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:withdraw', function(source, c
     if Accounts[accountName] then
         local job = Player.PlayerData.job
         local gang = Player.PlayerData.gang
-        if Accounts[accountName].account_type == 'job' and job.name ~= accountName and not job.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
-        if Accounts[accountName].account_type == 'gang' and gang.name ~= accountName and not gang.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[accountName].account_type == 'job' and (job.name ~= accountName or not job.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[accountName].account_type == 'gang' and (gang.name ~= accountName or not gang.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
         local accountBalance = GetAccountBalance(accountName)
         if accountBalance < withdrawAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         if not RemoveMoney(accountName, withdrawAmount) then return cb({ success = false, message = Lang:t('error.error') }) end
@@ -242,7 +255,9 @@ QBCore.Functions.CreateCallback('qb-banking:server:deposit', function(source, cb
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
     local accountName = data.accountName
-    local depositAmount = tonumber(data.amount)
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    local depositAmount = validMoneyAmount(data.amount)
+    if not depositAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'Bank Deposit'
     if accountName == 'checking' then
         local accountBalance = Player.PlayerData.money.cash
@@ -255,8 +270,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:deposit', function(source, cb
     if Accounts[accountName] then
         local job = Player.PlayerData.job
         local gang = Player.PlayerData.gang
-        if Accounts[accountName].account_type == 'job' and job.name ~= accountName and not job.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
-        if Accounts[accountName].account_type == 'gang' and gang.name ~= accountName and not gang.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[accountName].account_type == 'job' and (job.name ~= accountName or not job.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[accountName].account_type == 'gang' and (gang.name ~= accountName or not gang.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
         if Player.PlayerData.money.cash < depositAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         Player.RemoveMoney('cash', depositAmount, 'bank account: ' .. accountName .. ' deposit')
         if not AddMoney(accountName, depositAmount) then return cb({ success = false, message = Lang:t('error.error') }) end
@@ -272,7 +287,9 @@ QBCore.Functions.CreateCallback('qb-banking:server:internalTransfer', function(s
     local gang = Player.PlayerData.gang
     local fromAccountName = data.fromAccountName
     local toAccountName = data.toAccountName
-    local transferAmount = tonumber(data.amount)
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    local transferAmount = validMoneyAmount(data.amount)
+    if not transferAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'Internal transfer'
     if fromAccountName == 'checking' then
         if Player.PlayerData.money.bank < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
@@ -285,8 +302,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:internalTransfer', function(s
         if not CreateBankStatement(src, 'checking', transferAmount, reason, 'withdraw', 'player') then return cb({ success = false, message = Lang:t('error.error') }) end
         cb({ success = true, message = Lang:t('success.transfer') })
     elseif toAccountName == 'checking' then
-        if Accounts[fromAccountName].account_type == 'job' and job.name ~= fromAccountName and not job.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
-        if Accounts[fromAccountName].account_type == 'gang' and gang.name ~= fromAccountName and not gang.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[fromAccountName].account_type == 'job' and (job.name ~= fromAccountName or not job.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[fromAccountName].account_type == 'gang' and (gang.name ~= fromAccountName or not gang.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
         local fromAccountBalance = GetAccountBalance(fromAccountName)
         if fromAccountBalance < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         if not RemoveMoney(fromAccountName, transferAmount) then return cb({ success = false, message = Lang:t('error.error') }) end
@@ -294,8 +311,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:internalTransfer', function(s
         if not CreateBankStatement(src, 'checking', transferAmount, reason, 'deposit', 'player') then return cb({ success = false, message = Lang:t('error.error') }) end
         cb({ success = true, message = Lang:t('success.transfer') })
     else
-        if Accounts[fromAccountName].account_type == 'job' and job.name ~= fromAccountName and not job.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
-        if Accounts[fromAccountName].account_type == 'gang' and gang.name ~= fromAccountName and not gang.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[fromAccountName].account_type == 'job' and (job.name ~= fromAccountName or not job.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[fromAccountName].account_type == 'gang' and (gang.name ~= fromAccountName or not gang.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
         local fromAccountBalance = GetAccountBalance(fromAccountName)
         if fromAccountBalance < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         if not RemoveMoney(fromAccountName, transferAmount) then return cb({ success = false, message = Lang:t('error.error') }) end
@@ -314,7 +331,9 @@ QBCore.Functions.CreateCallback('qb-banking:server:externalTransfer', function(s
     local toPlayer = exports['qb-core']:GetPlayerByCitizenId(toAccountName)
     if not toPlayer then return cb({ success = false, message = Lang:t('error.error') }) end
     local fromAccountName = data.fromAccountName
-    local transferAmount = tonumber(data.amount)
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
+    local transferAmount = validMoneyAmount(data.amount)
+    if not transferAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     local reason = (data.reason ~= '' and data.reason) or 'External transfer'
     if fromAccountName == 'checking' then
         if Player.PlayerData.money.bank < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
@@ -324,8 +343,8 @@ QBCore.Functions.CreateCallback('qb-banking:server:externalTransfer', function(s
         if not CreateBankStatement(toPlayer.PlayerData.source, 'checking', transferAmount, reason, 'deposit', 'player') then return cb({ success = false, message = Lang:t('error.error') }) end
         cb({ success = true, message = Lang:t('success.transfer') })
     else
-        if Accounts[fromAccountName].account_type == 'job' and job.name ~= fromAccountName and not job.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
-        if Accounts[fromAccountName].account_type == 'gang' and gang.name ~= fromAccountName and not gang.isboss then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[fromAccountName].account_type == 'job' and (job.name ~= fromAccountName or not job.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
+        if Accounts[fromAccountName].account_type == 'gang' and (gang.name ~= fromAccountName or not gang.isboss) then return cb({ success = false, message = Lang:t('error.access') }) end
         local fromAccountBalance = GetAccountBalance(fromAccountName)
         if fromAccountBalance < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         if not RemoveMoney(fromAccountName, transferAmount) then return cb({ success = false, message = Lang:t('error.error') }) end
