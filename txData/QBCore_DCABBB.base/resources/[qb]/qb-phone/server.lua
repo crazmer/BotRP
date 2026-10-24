@@ -389,52 +389,70 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPicture', function(_, cb, nu
     end
 end)
 
-QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(_, cb, search)
-    search = escape_sqli(search)
+QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(source, cb, search)
+    local Player = exports['qb-core']:GetPlayer(source)
+    if not Player or not Player.PlayerData.job or Player.PlayerData.job.name ~= 'police' or not Player.PlayerData.job.onduty then
+        cb({})
+        return
+    end
+    if type(search) ~= 'string' then
+        cb({})
+        return
+    end
+    search = search:sub(1, 80):gsub('[%z\1-\31]', '')
+    if search == '' then
+        cb({})
+        return
+    end
+
+    local parameters = { search, '%' .. search .. '%' }
+    local query = 'SELECT citizenid, charinfo, metadata FROM players WHERE citizenid = ? OR charinfo LIKE ?'
+    local words = SplitStringToArray(search)
+    if #words > 1 then
+        local clauses = {}
+        for _, word in ipairs(words) do
+            clauses[#clauses + 1] = 'charinfo LIKE ?'
+            parameters[#parameters + 1] = '%' .. word .. '%'
+        end
+        query = 'SELECT citizenid, charinfo, metadata FROM players WHERE citizenid = ? OR (' .. table.concat(clauses, ' AND ') .. ')'
+        parameters = { search }
+        for _, word in ipairs(words) do parameters[#parameters + 1] = '%' .. word .. '%' end
+    end
+
+    local result = MySQL.query.await(query .. ' LIMIT 20', parameters)
     local searchData = {}
-    local ApaData = {}
-    local query = 'SELECT * FROM `players` WHERE `citizenid` = "' .. search .. '"'
-    -- Split on " " and check each var individual
-    local searchParameters = SplitStringToArray(search)
-    -- Construct query dynamicly for individual parm check
-    if #searchParameters > 1 then
-        query = query .. ' OR `charinfo` LIKE "%' .. searchParameters[1] .. '%"'
-        for i = 2, #searchParameters do
-            query = query .. ' AND `charinfo` LIKE  "%' .. searchParameters[i] .. '%"'
-        end
-    else
-        query = query .. ' OR `charinfo` LIKE "%' .. search .. '%"'
+    local matchedCids = {}
+    for _, row in ipairs(result or {}) do
+        local charinfo = json.decode(row.charinfo or '{}') or {}
+        local metadata = json.decode(row.metadata or '{}') or {}
+        local licences = metadata.licences or {}
+        matchedCids[row.citizenid] = true
+        searchData[#searchData + 1] = {
+            citizenid = row.citizenid,
+            firstname = charinfo.firstname,
+            lastname = charinfo.lastname,
+            birthdate = charinfo.birthdate,
+            phone = charinfo.phone,
+            nationality = charinfo.nationality,
+            gender = charinfo.gender,
+            warrant = false,
+            driverlicense = licences.driver
+        }
     end
-    local ApartmentData = MySQL.query.await('SELECT * FROM apartments', {})
-    for k, v in pairs(ApartmentData) do
-        ApaData[v.citizenid] = ApartmentData[k]
+
+    if #searchData == 0 then
+        cb({})
+        return
     end
-    local result = MySQL.query.await(query)
-    if result[1] ~= nil then
-        for _, v in pairs(result) do
-            local charinfo = json.decode(v.charinfo)
-            local metadata = json.decode(v.metadata)
-            local appiepappie = {}
-            if ApaData[v.citizenid] ~= nil and next(ApaData[v.citizenid]) ~= nil then
-                appiepappie = ApaData[v.citizenid]
-            end
-            searchData[#searchData + 1] = {
-                citizenid = v.citizenid,
-                firstname = charinfo.firstname,
-                lastname = charinfo.lastname,
-                birthdate = charinfo.birthdate,
-                phone = charinfo.phone,
-                nationality = charinfo.nationality,
-                gender = charinfo.gender,
-                warrant = false,
-                driverlicense = metadata['licences']['driver'],
-                appartmentdata = appiepappie
-            }
-        end
-        cb(searchData)
-    else
-        cb(nil)
-    end
+    local apartmentData = MySQL.query.await('SELECT citizenid, name, type, label FROM apartments WHERE citizenid IN (?)', { table.concat((function()
+        local ids = {}
+        for cid in pairs(matchedCids) do ids[#ids + 1] = cid end
+        return ids
+    end)(), ',') })
+    local apartmentsByCid = {}
+    for _, apartment in ipairs(apartmentData or {}) do apartmentsByCid[apartment.citizenid] = apartment end
+    for _, entry in ipairs(searchData) do entry.appartmentdata = apartmentsByCid[entry.citizenid] or {} end
+    cb(searchData)
 end)
 
 QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', function(_, cb, search)
