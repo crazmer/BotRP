@@ -225,9 +225,10 @@ QBCore.Functions.CreateCallback('qb-banking:server:withdraw', function(source, c
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
     if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
     local accountName = data.accountName
+    if type(accountName) ~= 'string' then return cb({ success = false, message = Lang:t('error.error') }) end
     local withdrawAmount = validMoneyAmount(data.amount)
     if not withdrawAmount then return cb({ success = false, message = Lang:t('error.error') }) end
-    local reason = (data.reason ~= '' and data.reason) or 'Bank Withdrawal'
+    local reason = (type(data.reason) == 'string' and data.reason ~= '' and data.reason:sub(1, 100)) or 'Bank Withdrawal'
     if accountName == 'checking' then
         local accountBalance = Player.PlayerData.money.bank
         if accountBalance < withdrawAmount then return cb({ success = false, message = Lang:t('error.money') }) end
@@ -258,7 +259,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:deposit', function(source, cb
     if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
     local depositAmount = validMoneyAmount(data.amount)
     if not depositAmount then return cb({ success = false, message = Lang:t('error.error') }) end
-    local reason = (data.reason ~= '' and data.reason) or 'Bank Deposit'
+    local reason = (type(data.reason) == 'string' and data.reason ~= '' and data.reason:sub(1, 100)) or 'Bank Deposit'
     if accountName == 'checking' then
         local accountBalance = Player.PlayerData.money.cash
         if accountBalance < depositAmount then return cb({ success = false, message = Lang:t('error.money') }) end
@@ -293,7 +294,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:internalTransfer', function(s
     if toAccountName ~= 'checking' and not Accounts[toAccountName] then return cb({ success = false, message = Lang:t('error.access') }) end
     local transferAmount = validMoneyAmount(data.amount)
     if not transferAmount then return cb({ success = false, message = Lang:t('error.error') }) end
-    local reason = (data.reason ~= '' and data.reason) or 'Internal transfer'
+    local reason = (type(data.reason) == 'string' and data.reason ~= '' and data.reason:sub(1, 100)) or 'Internal transfer'
     if fromAccountName == 'checking' then
         if Player.PlayerData.money.bank < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         Player.RemoveMoney('bank', transferAmount, reason)
@@ -339,7 +340,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:externalTransfer', function(s
     if fromAccountName ~= 'checking' and not Accounts[fromAccountName] then return cb({ success = false, message = Lang:t('error.access') }) end
     local transferAmount = validMoneyAmount(data.amount)
     if not transferAmount then return cb({ success = false, message = Lang:t('error.error') }) end
-    local reason = (data.reason ~= '' and data.reason) or 'External transfer'
+    local reason = (type(data.reason) == 'string' and data.reason ~= '' and data.reason:sub(1, 100)) or 'External transfer'
     if fromAccountName == 'checking' then
         if Player.PlayerData.money.bank < transferAmount then return cb({ success = false, message = Lang:t('error.money') }) end
         Player.RemoveMoney('bank', transferAmount, reason)
