@@ -178,7 +178,7 @@ RegisterNetEvent('qb-houses:server:addNewHouse', function(street, coords, price,
     if type(street) ~= 'string' or #street < 2 or #street > 80 or type(coords) ~= 'table' then return end
     price = tonumber(price)
     tier = tonumber(tier)
-    if not price or price < 0 or price > 100000000 or not tier or not Config.HouseTiers[tier] then return end
+    if not price or price < 0 or price > 100000000 or not tier or not Config.StashWeights[tier] then return end
     street = street:gsub("[^%w%s%-']", '')
     local houseCount = GetHouseStreetCount(street)
     local name = street:lower() .. tostring(houseCount)
