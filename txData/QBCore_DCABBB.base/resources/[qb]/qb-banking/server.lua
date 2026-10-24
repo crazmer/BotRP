@@ -380,8 +380,11 @@ QBCore.Functions.CreateCallback('qb-banking:server:openAccount', function(source
     local src = source
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(data) ~= 'table' then return cb({ success = false, message = Lang:t('error.error') }) end
     local accountName = data.accountName
-    local initialAmount = tonumber(data.amount)
+    local initialAmount = validMoneyAmount(data.amount)
+    if type(accountName) ~= 'string' or #accountName < 3 or #accountName > 50 then return cb({ success = false, message = Lang:t('error.error') }) end
+    if not initialAmount then return cb({ success = false, message = Lang:t('error.error') }) end
     if GetNumberOfAccounts(citizenid) >= Config.maxAccounts then return cb({ success = false, message = Lang:t('error.accounts') }) end
     if Player.PlayerData.money.bank < initialAmount then return cb({ success = false, message = Lang:t('error.money') }) end
     Player.RemoveMoney('bank', initialAmount, 'Opened account ' .. accountName)
@@ -396,6 +399,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:renameAccount', function(sour
     local src = source
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(data) ~= 'table' or type(data.oldName) ~= 'string' or type(data.newName) ~= 'string' or #data.newName < 3 or #data.newName > 50 then return cb({ success = false, message = Lang:t('error.error') }) end
     local oldName = data.oldName
     local newName = data.newName
     if not Accounts[oldName] then return cb({ success = false, message = Lang:t('error.error') }) end
@@ -413,6 +417,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:deleteAccount', function(sour
     local src = source
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(data) ~= 'table' or type(data.accountName) ~= 'string' then return cb({ success = false, message = Lang:t('error.error') }) end
     local accountName = data.accountName
     if not Accounts[accountName] then return cb({ success = false, message = Lang:t('error.error') }) end
     if Accounts[accountName].citizenid ~= citizenid then return cb({ success = false, message = Lang:t('error.access') }) end
@@ -427,6 +432,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:addUser', function(source, cb
     local src = source
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(data) ~= 'table' or type(data.userName) ~= 'string' or type(data.accountName) ~= 'string' then return cb({ success = false, message = Lang:t('error.error') }) end
     local userToAdd = data.userName
     local accountName = data.accountName
     if not Accounts[accountName] then return cb({ success = false, message = Lang:t('error.account') }) end
@@ -449,6 +455,7 @@ QBCore.Functions.CreateCallback('qb-banking:server:removeUser', function(source,
     local src = source
     local Player, citizenid = getPlayerAndCitizenId(src)
     if not Player or not citizenid then return cb({ success = false, message = Lang:t('error.error') }) end
+    if type(data) ~= 'table' or type(data.userName) ~= 'string' or type(data.accountName) ~= 'string' then return cb({ success = false, message = Lang:t('error.error') }) end
     local userToRemove = data.userName
     local accountName = data.accountName
     if not Accounts[accountName] then return cb({ success = false, message = Lang:t('error.account') }) end
