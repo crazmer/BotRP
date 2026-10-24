@@ -163,7 +163,7 @@ QBCore.Functions.CreateCallback('qb-multicharacter:server:GetServerLogs', functi
         cb({})
         return
     end
-    MySQL.query('SELECT * FROM server_logs ORDER BY id DESC LIMIT 200', {}, function(result)
+    MySQL.query('SELECT * FROM server_logs LIMIT 200', {}, function(result)
         cb(result or {})
     end)
 end)
