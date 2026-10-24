@@ -444,11 +444,14 @@ QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(source, 
         cb({})
         return
     end
-    local apartmentData = MySQL.query.await('SELECT citizenid, name, type, label FROM apartments WHERE citizenid IN (?)', { table.concat((function()
-        local ids = {}
-        for cid in pairs(matchedCids) do ids[#ids + 1] = cid end
-        return ids
-    end)(), ',') })
+    local ids = {}
+    for cid in pairs(matchedCids) do ids[#ids + 1] = cid end
+    local apartmentData = {}
+    if #ids > 0 then
+        local placeholders = {}
+        for i = 1, #ids do placeholders[i] = '?' end
+        apartmentData = MySQL.query.await('SELECT citizenid, name, type, label FROM apartments WHERE citizenid IN (' .. table.concat(placeholders, ', ') .. ')', ids) or {}
+    end
     local apartmentsByCid = {}
     for _, apartment in ipairs(apartmentData or {}) do apartmentsByCid[apartment.citizenid] = apartment end
     for _, entry in ipairs(searchData) do entry.appartmentdata = apartmentsByCid[entry.citizenid] or {} end
