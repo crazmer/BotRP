@@ -175,7 +175,8 @@ RegisterNetEvent('qb-houses:server:addNewHouse', function(street, coords, price,
     local src = source
     local Player = exports['qb-core']:GetPlayer(src)
     if not Player or not Player.PlayerData.job or Player.PlayerData.job.name ~= 'realestate' then return end
-    if type(street) ~= 'string' or #street < 2 or #street > 80 or type(coords) ~= 'table' then return end
+    local coordsType = type(coords)
+    if type(street) ~= 'string' or #street < 2 or #street > 80 or (coordsType ~= 'table' and coordsType ~= 'vector3') then return end
     price = tonumber(price)
     tier = tonumber(tier)
     if not price or price < 0 or price > 100000000 or not tier or not Config.StashWeights[tier] then return end
@@ -205,7 +206,8 @@ RegisterNetEvent('qb-houses:server:addGarage', function(house, coords)
     local Player = exports['qb-core']:GetPlayer(src)
     if not Player or not Player.PlayerData.job or Player.PlayerData.job.name ~= 'realestate' then return end
     local houseData = type(house) == 'string' and Config.Houses[house] or nil
-    if not houseData or type(coords) ~= 'table' then return end
+    local coordsType = type(coords)
+    if not houseData or (coordsType ~= 'table' and coordsType ~= 'vector3') then return end
     MySQL.update('UPDATE houselocations SET garage = ? WHERE name = ?', { json.encode(coords), house })
     local garageInfo = {
         label = houseData.adress,
@@ -299,7 +301,15 @@ RegisterNetEvent('qb-houses:server:SetRamState', function(bool, house)
     local job = Player.PlayerData.job
     if not job or job.name ~= 'police' or not job.onduty then return end
     local coords = GetEntityCoords(GetPlayerPed(src))
-    if #(coords - houseData.coords) > 15.0 then return end
+    local houseCoords = houseData.coords
+    if type(houseCoords) == 'table' then
+        local x = tonumber(houseCoords.x or houseCoords[1])
+        local y = tonumber(houseCoords.y or houseCoords[2])
+        local z = tonumber(houseCoords.z or houseCoords[3])
+        if not x or not y or not z then return end
+        houseCoords = vector3(x, y, z)
+    end
+    if not houseCoords or #(coords - houseCoords) > 15.0 then return end
     houseData.IsRaming = bool
     TriggerClientEvent('qb-houses:server:SetRamState', -1, bool, house)
 end)
