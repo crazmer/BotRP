@@ -173,9 +173,14 @@ end)
 
 RegisterNetEvent('qb-houses:server:addNewHouse', function(street, coords, price, tier)
     local src = source
-    street = street:gsub("%'", '')
+    local Player = exports['qb-core']:GetPlayer(src)
+    if not Player or not Player.PlayerData.job or Player.PlayerData.job.name ~= 'realestate' then return end
+    local coordsType = type(coords)
+    if type(street) ~= 'string' or #street < 2 or #street > 80 or (coordsType ~= 'table' and coordsType ~= 'vector3') then return end
     price = tonumber(price)
     tier = tonumber(tier)
+    if not price or price < 0 or price > 100000000 or not tier or not Config.StashWeights[tier] then return end
+    street = street:gsub("[^%w%s%-']", '')
     local houseCount = GetHouseStreetCount(street)
     local name = street:lower() .. tostring(houseCount)
     local label = street .. ' ' .. tostring(houseCount)
@@ -198,11 +203,17 @@ end)
 
 RegisterNetEvent('qb-houses:server:addGarage', function(house, coords)
     local src = source
+    local Player = exports['qb-core']:GetPlayer(src)
+    if not Player or not Player.PlayerData.job or Player.PlayerData.job.name ~= 'realestate' then return end
+    local houseData = type(house) == 'string' and Config.Houses[house] or nil
+    local coordsType = type(coords)
+    if not houseData or (coordsType ~= 'table' and coordsType ~= 'vector3') then return end
     MySQL.update('UPDATE houselocations SET garage = ? WHERE name = ?', { json.encode(coords), house })
     local garageInfo = {
-        label = Config.Houses[house].adress,
+        label = houseData.adress,
         takeVehicle = coords
     }
+    houseData.garage = coords
     TriggerClientEvent('qb-garages:client:addHouseGarage', -1, house, garageInfo)
     TriggerClientEvent('QBCore:Notify', src, Lang:t('info.added_garage', { value = garageInfo.label }))
 end)
@@ -219,11 +230,17 @@ end)
 
 RegisterNetEvent('qb-houses:server:openStash', function(CurrentHouse)
     local src = source
-    local houseData = Config.Houses[CurrentHouse]
-    if not houseData then return end
+    local Player = exports['qb-core']:GetPlayer(src)
+    local houseData = type(CurrentHouse) == 'string' and Config.Houses[CurrentHouse] or nil
+    if not Player or not houseData or not houseData.owned then return end
+    if not hasKey(Player.PlayerData.license, Player.PlayerData.citizenid, CurrentHouse) then
+        TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_owner'), 'error')
+        return
+    end
     local houseTier = houseData.tier
-    local stashSlots = Config.StashWeights[houseTier].slots
-    local stashWeight = Config.StashWeights[houseTier].maxweight
+    local stashConfig = Config.StashWeights[houseTier]
+    local stashSlots = stashConfig and stashConfig.slots
+    local stashWeight = stashConfig and stashConfig.maxweight
     if stashSlots and stashWeight then
         exports['qb-inventory']:OpenInventory(src, CurrentHouse, {
             maxweight = stashWeight,
@@ -269,11 +286,31 @@ RegisterNetEvent('qb-houses:server:buyHouse', function(house)
 end)
 
 RegisterNetEvent('qb-houses:server:lockHouse', function(bool, house)
+    local src = source
+    local Player = exports['qb-core']:GetPlayer(src)
+    if not Player or type(bool) ~= 'boolean' or type(house) ~= 'string' or not Config.Houses[house] then return end
+    if not hasKey(Player.PlayerData.license, Player.PlayerData.citizenid, house) then return end
     TriggerClientEvent('qb-houses:client:lockHouse', -1, bool, house)
 end)
 
 RegisterNetEvent('qb-houses:server:SetRamState', function(bool, house)
-    Config.Houses[house].IsRaming = bool
+    local src = source
+    local Player = exports['qb-core']:GetPlayer(src)
+    local houseData = type(house) == 'string' and Config.Houses[house] or nil
+    if not Player or not houseData or type(bool) ~= 'boolean' then return end
+    local job = Player.PlayerData.job
+    if not job or job.name ~= 'police' or not job.onduty then return end
+    local coords = GetEntityCoords(GetPlayerPed(src))
+    local houseCoords = houseData.coords
+    if type(houseCoords) == 'table' then
+        local x = tonumber(houseCoords.x or houseCoords[1])
+        local y = tonumber(houseCoords.y or houseCoords[2])
+        local z = tonumber(houseCoords.z or houseCoords[3])
+        if not x or not y or not z then return end
+        houseCoords = vector3(x, y, z)
+    end
+    if not houseCoords or #(coords - houseCoords) > 15.0 then return end
+    houseData.IsRaming = bool
     TriggerClientEvent('qb-houses:server:SetRamState', -1, bool, house)
 end)
 

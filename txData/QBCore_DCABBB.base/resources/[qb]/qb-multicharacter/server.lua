@@ -158,9 +158,13 @@ QBCore.Functions.CreateCallback('qb-multicharacter:server:GetUserCharacters', fu
     end)
 end)
 
-QBCore.Functions.CreateCallback('qb-multicharacter:server:GetServerLogs', function(_, cb)
-    MySQL.query('SELECT * FROM server_logs', {}, function(result)
-        cb(result)
+QBCore.Functions.CreateCallback('qb-multicharacter:server:GetServerLogs', function(source, cb)
+    if not (QBCore.Functions.HasPermission(source, 'admin') or QBCore.Functions.HasPermission(source, 'god') or IsPlayerAceAllowed(source, 'command')) then
+        cb({})
+        return
+    end
+    MySQL.query('SELECT * FROM server_logs LIMIT 200', {}, function(result)
+        cb(result or {})
     end)
 end)
 
@@ -198,9 +202,23 @@ QBCore.Functions.CreateCallback('qb-multicharacter:server:setupCharacters', func
     end)
 end)
 
-QBCore.Functions.CreateCallback('qb-multicharacter:server:getSkin', function(_, cb, cid)
-    local result = MySQL.query.await('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', { cid, 1 })
-    if result[1] ~= nil then
+QBCore.Functions.CreateCallback('qb-multicharacter:server:getSkin', function(source, cb, cid)
+    if type(cid) ~= 'string' or cid == '' then
+        cb(nil)
+        return
+    end
+    local license = QBCore.Functions.GetIdentifier(source, 'license')
+    if not license then
+        cb(nil)
+        return
+    end
+    local owner = MySQL.query.await('SELECT citizenid FROM players WHERE citizenid = ? AND license = ? LIMIT 1', { cid, license })
+    if not owner or not owner[1] then
+        cb(nil)
+        return
+    end
+    local result = MySQL.query.await('SELECT model, skin FROM playerskins WHERE citizenid = ? AND active = ? LIMIT 1', { cid, 1 })
+    if result and result[1] then
         cb(result[1].model, result[1].skin)
     else
         cb(nil)
