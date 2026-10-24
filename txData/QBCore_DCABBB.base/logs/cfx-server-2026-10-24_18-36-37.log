@@ -1,0 +1,282 @@
+[24-10-2026 18:36:38] [    info] [                ] Scanning resources
+[24-10-2026 18:36:38] [    info] [                ] Found 91 resources
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'hospital_map' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'dealer_map' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'prison_main' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'prison_canteen' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'bob74_ipl' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'menuv' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'prison_meeting' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'qb-hud' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'qb-interior' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'qb-radialmenu' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'qb-mechanicjob' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [ warning] [                ] Resource 'qb-smallresources' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[24-10-2026 18:36:38] [   error] [                ] sv_enforceGameBuild is used with an invalid value 3095. Only 1 is supported to remove any game dlcs.
+[24-10-2026 18:36:40] [    info] [         txadmin] ^5[txAdmin]^0 Resource v9.0.0-beta-0c782860 threads and commands set up. All Ready.^0
+[24-10-2026 18:36:40] [    info] [                ] Starting resource mapmanager
+[24-10-2026 18:36:40] [    info] [                ] Started resource mapmanager
+[24-10-2026 18:36:40] [    info] [                ] Starting resource spawnmanager
+[24-10-2026 18:36:40] [    info] [                ] Started resource spawnmanager
+[24-10-2026 18:36:40] [   error] [                ] Failed to ensure resource sessionmanager. Error: Resource "sessionmanager" not found
+[24-10-2026 18:36:40] [    info] [                ] Starting resource basic-gamemode
+[24-10-2026 18:36:40] [    info] [      mapmanager] Started gametype Freeroam
+[24-10-2026 18:36:40] [    info] [                ] Started resource basic-gamemode
+[24-10-2026 18:36:40] [   error] [                ] Failed to ensure resource hardcap. Error: Resource "hardcap" not found
+[24-10-2026 18:36:40] [    info] [                ] Starting resource baseevents
+[24-10-2026 18:36:40] [    info] [                ] Started resource baseevents
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-core
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-core
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-adminmenu
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/menuv.ytd in resource menuv has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-adminmenu
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-ambulancejob
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-ambulancejob
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-apartments
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/container_shell.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/frankaunttextures.ytd in resource qb-interior has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/furnitured_midapart.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/lesters_txd.ytd in resource qb-interior has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/modernhotel_shell.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_frankaunt.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_garagem.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_lester.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_michael.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_office1.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_office1_txd.ytd in resource qb-interior has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_ranch.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_store1.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_trailer.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_trevor.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_v16low.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_v16mid.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/shell_warehouse1.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [   error] [                ] Rsc7 file stream/standardmotel_shell.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-apartments
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-banking
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-banking
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-bankrobbery
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-bankrobbery
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-busjob
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-busjob
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-cityhall
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-cityhall
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-crafting
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-crafting
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-crypto
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-crypto
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-diving
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-diving
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-doorlock
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-doorlock
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-drugs
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-drugs
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-fuel
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-fuel
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-garages
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-garages
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-garbagejob
+[24-10-2026 18:36:40] [    info] [                ] Started resource qb-garbagejob
+[24-10-2026 18:36:40] [    info] [                ] Starting resource qb-hotdogjob
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-hotdogjob
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-houserobbery
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-houserobbery
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-houses
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-houses
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-hud
+[24-10-2026 18:36:41] [   error] [                ] Rsc7 file stream/circlemap.ytd in resource qb-hud has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:41] [   error] [                ] Rsc7 file stream/minimap.ytd in resource qb-hud has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:41] [   error] [                ] Rsc7 file stream/squaremap.ytd in resource qb-hud has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-hud
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-input
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-input
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-inventory
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-inventory
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-jewelery
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-jewelery
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-lapraces
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-lapraces
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-loading
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-loading
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-management
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-management
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-mechanicjob
+[24-10-2026 18:36:41] [   error] [                ] Rsc7 file stream/vehicle_paint_ramps.ytd in resource qb-mechanicjob has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-mechanicjob
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-menu
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-menu
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-multicharacter
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-multicharacter
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-newsjob
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-newsjob
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-pawnshop
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-pawnshop
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-phone
+[24-10-2026 18:36:41] [    info] [                ] Started resource qb-phone
+[24-10-2026 18:36:41] [    info] [                ] Starting resource qb-policejob
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-policejob
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-prison
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-prison
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-radialmenu
+[24-10-2026 18:36:42] [   error] [                ] Rsc7 file stream/prop_ld_binbag_01+hidr.ytd in resource qb-radialmenu has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:42] [   error] [                ] Rsc7 file stream/prop_ld_binbag_01.ydr in resource qb-radialmenu has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:42] [   error] [                ] Rsc7 file stream/prop_ld_binbag_01.yft in resource qb-radialmenu has version 162, expected 171. Skipping cache generation for this file.
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-radialmenu
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-recyclejob
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-recyclejob
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-scoreboard
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-scoreboard
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-scrapyard
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-scrapyard
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-shops
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-shops
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-smallresources
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-smallresources
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-storerobbery
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-storerobbery
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-streetraces
+[24-10-2026 18:36:42] [   error] [                ] Command cancelrace is already registered.
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-streetraces
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-taxijob
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-taxijob
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-towjob
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-towjob
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-truckrobbery
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-truckrobbery
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-vehiclekeys
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-vehiclekeys
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-vehiclesales
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-vehiclesales
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-vehicleshop
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-vehicleshop
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-vineyard
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-vineyard
+[24-10-2026 18:36:42] [    info] [                ] Starting resource qb-weed
+[24-10-2026 18:36:42] [    info] [                ] Started resource qb-weed
+[24-10-2026 18:36:42] [    info] [                ] Starting resource bob74_ipl
+[24-10-2026 18:36:42] [   error] [                ] Rsc7 file stream/prop_palm_fan_04_d.ydr in resource bob74_ipl has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:42] [   error] [                ] Rsc7 file stream/v_24_lgb_mesh_sofa_old.ydr in resource bob74_ipl has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:42] [   error] [                ] Rsc7 file stream/v_24_llga_mesh_coffeetable_old.ydr in resource bob74_ipl has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:42] [    info] [                ] Started resource bob74_ipl
+[24-10-2026 18:36:42] [    info] [                ] Starting resource connectqueue
+[24-10-2026 18:36:42] [    info] [    connectqueue] ^3QUEUE: ^0^1 [connectqueue] Disabling hardcap ^7^7
+[24-10-2026 18:36:42] [critical] [    connectqueue] Script error in Native StopResource: "Failed to stop resource hardcap. Error: Resource "hardcap" not found."
+^3> StopResource^5
+^3> [global chunk]^5 (connectqueue/shared/sh_queue.lua:758)
+
+[24-10-2026 18:36:42] [    info] [                ] Started resource connectqueue
+[24-10-2026 18:36:42] [    info] [                ] Starting resource interact-sound
+[24-10-2026 18:36:42] [    info] [                ] Started resource interact-sound
+[24-10-2026 18:36:42] [    info] [                ] Starting resource progressbar
+[24-10-2026 18:36:42] [    info] [                ] Started resource progressbar
+[24-10-2026 18:36:42] [    info] [                ] Starting resource safecracker
+[24-10-2026 18:36:42] [    info] [                ] Started resource safecracker
+[24-10-2026 18:36:42] [    info] [                ] Starting resource screencapture
+[24-10-2026 18:36:43] [    info] [                ] Started resource screencapture
+[24-10-2026 18:36:43] [    info] [                ] Starting resource pma-voice
+[24-10-2026 18:36:43] [    info] [                ] Started resource pma-voice
+[24-10-2026 18:36:43] [    info] [                ] Starting resource qb-radio
+[24-10-2026 18:36:43] [    info] [                ] Started resource qb-radio
+[24-10-2026 18:36:43] [    info] [                ] Starting resource dealer_map
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/bh1_04_build004.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/bh1_04_details1.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/bh1_04_lod.ytd in resource dealer_map has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/bh1_lod_01_04_children.ytd in resource dealer_map has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/concess_free_patoche_det1.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/concess_free_patoche_det2.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/concess_free_patoche_det3.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/concess_free_patoche_det4.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/concess_free_patoche_shell.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/patoche_free_door1.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [ warning] [                ] Resource 'dealer_map' references data file 'stream/patoche_cyber_list.ytyp' of type 'DLC_ITYP_REQUEST' that does not exist.
+[24-10-2026 18:36:43] [    info] [                ] Started resource dealer_map
+[24-10-2026 18:36:43] [    info] [                ] Starting resource hospital_map
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_details2.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_details3.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_doorfr3.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_hospbumpers2.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_hospital.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_hospital_txd.ytd in resource hospital_map has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_hospseating1.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_lights2.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_lights3.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_oldlights.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_roomlights.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40_sidedr.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/v_40overlay1.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [    info] [                ] Started resource hospital_map
+[24-10-2026 18:36:43] [    info] [                ] Starting resource prison_canteen
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/Prisoncanteen.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/canteen_stuff_01.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/canteen_stuff_02.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/cs6_04_canmod014.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/cs6_04_pris_dec06.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/lights_prop_01.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/plate_holder.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/prison_canteen_food_stand.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/prisoncanteen_kitchentable.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/prisoncanteen_tables.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [    info] [                ] Started resource prison_canteen
+[24-10-2026 18:36:43] [    info] [                ] Starting resource prison_main
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/Prison.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/desertos_prison.ytd in resource prison_main has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/desertos_prison_door_01.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/dressing_room.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/dressing_room.ytd in resource prison_main has version 13, expected 5. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/gates.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/holes.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/lights_prop_02.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/lobbylights.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/lockers.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/lr_cs6_04_mainblock.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/prison_main_bars.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/prison_mirror.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [ warning] [                ] Resource 'prison_main' references data file 'desertos_prison_door_01_game.dat' of type 'AUDIO_GAMEDATA' that does not exist.
+[24-10-2026 18:36:43] [    info] [                ] Started resource prison_main
+[24-10-2026 18:36:43] [    info] [                ] Starting resource prison_meeting
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/Meetingroom.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/cs6_04_emissive.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/cs6_04_emissive_lod.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/cs6_04_reception.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/meetingroom_det_01.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [   error] [                ] Rsc7 file stream/meetingroom_det_02.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[24-10-2026 18:36:43] [    info] [                ] Started resource prison_meeting
+[24-10-2026 18:36:45] [    info] [                ] Starting resource fivem-map-hipster
+[24-10-2026 18:36:45] [    info] [      mapmanager] Started map fivem-map-hipster
+[24-10-2026 18:36:45] [    info] [                ] Started resource fivem-map-hipster
+[24-10-2026 18:36:45] [    info] [         oxmysql] ^5[12.3.3-MariaDB] ^2Database server connection established!^0
+[24-10-2026 18:36:45] [ warning] [                ] ScheduleResourceTick: This native is deprecated. Script resources in FiveM for GTAV Enhanced are running on the same tick rate as the server main tick.
+[24-10-2026 18:36:45] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.84.116:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:36:46] [    info] [         oxmysql] ^3An update is available for oxmysql (current version: 2.14.1)
+https://github.com/overextended/oxmysql/releases/tag/v2.14.3^0
+[24-10-2026 18:37:15] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:37:46] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:38:16] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:38:47] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:39:17] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:39:47] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:40:17] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:40:48] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:41:18] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:41:49] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:42:09] [    info] [    connectqueue] ^3QUEUE: ^0NotAGirl[license:e12a8b92d0ee09b7d83ddd3c1c934f9b5d549cba] was placed 1/1 in queue^7
+[24-10-2026 18:42:10] [    info] [    connectqueue] ^3QUEUE: ^0NotAGirl[license:e12a8b92d0ee09b7d83ddd3c1c934f9b5d549cba] is loading into the server^7
+[24-10-2026 18:42:19] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:42:49] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:43:20] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:43:50] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:44:20] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:44:50] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:45:17] [    info] [         qb-core] ^2[qb-core:LOG]^0 NotAGirl PLAYER SAVED!
+[24-10-2026 18:45:18] [ warning] [                ] Native SetPlayerRoutingBucket expected an integer but got a string. The argument[1] value was: '136'.
+[24-10-2026 18:45:18] [    info] [qb-multicharacter] ^2[qb-core]^7 NotAGirl has successfully loaded!
+[24-10-2026 18:45:21] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:45:31] [    info] [         qb-core] ^2[qb-core:LOG]^0 NotAGirl PLAYER SAVED!
+[24-10-2026 18:45:51] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:46:21] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:46:45] [    info] [       qb-crypto] Crypto not found, inserting new record for qbit
+[24-10-2026 18:46:52] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:46:58] [    info] [         qb-core] ^2[qb-core:LOG]^0 NotAGirl PLAYER SAVED!
+[24-10-2026 18:47:22] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:47:52] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[24-10-2026 18:48:23] [   error] [                ] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..

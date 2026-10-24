@@ -1,0 +1,69 @@
+#   ____  ____   _____
+#  / __ \|  _ \ / ____|
+# | |  | | |_) | |     ___  _ __ ___
+# | |  | |  _ <| |    / _ \| '__/ _ \
+# | |__| | |_) | |___| (_) | | |  __/
+#  \___\_\____/ \_____\___/|_|  \___|
+
+## FiveM Documentation
+## https://aka.cfx.re/server-commands
+
+## QBCore Documentation
+## https://docs.qbcore.org
+
+## [!] Server Listing Configuration Moved to Cfx Portal [!]
+## To configure server listing metadata, please go to https://portal.cfx.re/servers
+## The following ConVars cannot be configured in this file:
+## - sv_projectName, sv_projectDesc, sv_hostname, locale, tags
+## - banner_connecting, banner_detail, load_server_icon
+
+## You CAN edit the following:
+sv_licenseKey "cfxk_1hcnJ4HFxsrtlLfELfOoI_23ztOI"
+sv_maxclients 48
+set mysql_connection_string "mysql://root:12345678@localhost/QBCore_DCABBB?charset=utf8mb4"
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+sv_enforceGameBuild 3095 #DLC The Chop Shop
+set resources_useSystemChat true
+set steam_webApiKey "none"
+
+# Voice config
+setr voice_useNativeAudio true
+setr voice_defaultCycle "GRAVE"
+setr voice_defaultVolume 0.3
+setr voice_enableRadioAnim 1
+setr voice_syncData 1
+setr voice_useSendingRangeOnly false
+
+# QBCore locale config
+setr qb_locale "en"
+
+# QBCore UseTarget
+setr UseTarget false
+
+# These resources will start by default
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+ensure basic-gamemode
+ensure hardcap
+ensure baseevents
+
+# QBCore & Extra stuff
+ensure qb-core
+ensure [qb]
+ensure [standalone]
+ensure [voice]
+ensure [defaultmaps]
+
+## Permissions
+add_ace group.admin command allow # allow all commands
+add_principal identifier.fivem:8084825 group.admin #NotAGirl
+
+add_ace resource.qb-core command allow # Allow qb-core to execute commands
+add_ace qbcore.god command allow # Allow all commands
+add_principal qbcore.god group.admin # Allow gods access to the main admin group used to get all default permissions
+add_principal qbcore.god qbcore.admin # Allow gods access to admin commands
+add_principal qbcore.admin qbcore.mod # Allow admins access to mod commands

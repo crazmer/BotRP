@@ -1,0 +1,285 @@
+║         TXADMIN║ ================================================================
+║         TXADMIN║ ======== [23304] FXServer Starting - 24/10/2026, 6:36:36 pm     
+║         TXADMIN║ ================================================================
+[18:36:38] [citizen-server-i] Scanning resources
+[18:36:38] [citizen-server-i] Found 91 resources
+[18:36:38] [citizen-resource] Resource 'hospital_map' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'dealer_map' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'prison_main' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'prison_canteen' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'bob74_ipl' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'menuv' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'prison_meeting' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'qb-hud' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'qb-interior' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'qb-radialmenu' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'qb-mechanicjob' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [citizen-resource] Resource 'qb-smallresources' uses the deprecated 'stream/' folder. Please rename it to 'stream_enhanced/' for future compatibility.
+[18:36:38] [           fivem] sv_enforceGameBuild is used with an invalid value 3095. Only 1 is supported to remove any game dlcs.
+[18:36:40] [         txadmin] [txAdmin] Resource v9.0.0-beta-0c782860 threads and commands set up. All Ready.
+[18:36:40] [citizen-server-i] Starting resource mapmanager
+[18:36:40] [citizen-server-i] Started resource mapmanager
+[18:36:40] [citizen-server-i] Starting resource spawnmanager
+[18:36:40] [citizen-server-i] Started resource spawnmanager
+[18:36:40] [citizen-server-i] Failed to ensure resource sessionmanager. Error: Resource "sessionmanager" not found
+[18:36:40] [citizen-server-i] Starting resource basic-gamemode
+[18:36:40] [      mapmanager] Started gametype Freeroam
+[18:36:40] [citizen-server-i] Started resource basic-gamemode
+[18:36:40] [citizen-server-i] Failed to ensure resource hardcap. Error: Resource "hardcap" not found
+[18:36:40] [citizen-server-i] Starting resource baseevents
+[18:36:40] [citizen-server-i] Started resource baseevents
+[18:36:40] [citizen-server-i] Starting resource qb-core
+[18:36:40] [citizen-server-i] Started resource qb-core
+[18:36:40] [citizen-server-i] Starting resource qb-adminmenu
+[18:36:40] [citizen-server-i] Rsc7 file stream/menuv.ytd in resource menuv has version 13, expected 5. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Started resource qb-adminmenu
+[18:36:40] [citizen-server-i] Starting resource qb-ambulancejob
+[18:36:40] [citizen-server-i] Started resource qb-ambulancejob
+[18:36:40] [citizen-server-i] Starting resource qb-apartments
+[18:36:40] [citizen-server-i] Rsc7 file stream/container_shell.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/frankaunttextures.ytd in resource qb-interior has version 13, expected 5. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/furnitured_midapart.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/lesters_txd.ytd in resource qb-interior has version 13, expected 5. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/modernhotel_shell.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_frankaunt.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_garagem.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_lester.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_michael.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_office1.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_office1_txd.ytd in resource qb-interior has version 13, expected 5. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_ranch.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_store1.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_trailer.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_trevor.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_v16low.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_v16mid.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/shell_warehouse1.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Rsc7 file stream/standardmotel_shell.ydr in resource qb-interior has version 165, expected 159. Skipping cache generation for this file.
+[18:36:40] [citizen-server-i] Started resource qb-apartments
+[18:36:40] [citizen-server-i] Starting resource qb-banking
+[18:36:40] [citizen-server-i] Started resource qb-banking
+[18:36:40] [citizen-server-i] Starting resource qb-bankrobbery
+[18:36:40] [citizen-server-i] Started resource qb-bankrobbery
+[18:36:40] [citizen-server-i] Starting resource qb-busjob
+[18:36:40] [citizen-server-i] Started resource qb-busjob
+[18:36:40] [citizen-server-i] Starting resource qb-cityhall
+[18:36:40] [citizen-server-i] Started resource qb-cityhall
+[18:36:40] [citizen-server-i] Starting resource qb-crafting
+[18:36:40] [citizen-server-i] Started resource qb-crafting
+[18:36:40] [citizen-server-i] Starting resource qb-crypto
+[18:36:40] [citizen-server-i] Started resource qb-crypto
+[18:36:40] [citizen-server-i] Starting resource qb-diving
+[18:36:40] [citizen-server-i] Started resource qb-diving
+[18:36:40] [citizen-server-i] Starting resource qb-doorlock
+[18:36:40] [citizen-server-i] Started resource qb-doorlock
+[18:36:40] [citizen-server-i] Starting resource qb-drugs
+[18:36:40] [citizen-server-i] Started resource qb-drugs
+[18:36:40] [citizen-server-i] Starting resource qb-fuel
+[18:36:40] [citizen-server-i] Started resource qb-fuel
+[18:36:40] [citizen-server-i] Starting resource qb-garages
+[18:36:40] [citizen-server-i] Started resource qb-garages
+[18:36:40] [citizen-server-i] Starting resource qb-garbagejob
+[18:36:40] [citizen-server-i] Started resource qb-garbagejob
+[18:36:40] [citizen-server-i] Starting resource qb-hotdogjob
+[18:36:41] [citizen-server-i] Started resource qb-hotdogjob
+[18:36:41] [citizen-server-i] Starting resource qb-houserobbery
+[18:36:41] [citizen-server-i] Started resource qb-houserobbery
+[18:36:41] [citizen-server-i] Starting resource qb-houses
+[18:36:41] [citizen-server-i] Started resource qb-houses
+[18:36:41] [citizen-server-i] Starting resource qb-hud
+[18:36:41] [citizen-server-i] Rsc7 file stream/circlemap.ytd in resource qb-hud has version 13, expected 5. Skipping cache generation for this file.
+[18:36:41] [citizen-server-i] Rsc7 file stream/minimap.ytd in resource qb-hud has version 13, expected 5. Skipping cache generation for this file.
+[18:36:41] [citizen-server-i] Rsc7 file stream/squaremap.ytd in resource qb-hud has version 13, expected 5. Skipping cache generation for this file.
+[18:36:41] [citizen-server-i] Started resource qb-hud
+[18:36:41] [citizen-server-i] Starting resource qb-input
+[18:36:41] [citizen-server-i] Started resource qb-input
+[18:36:41] [citizen-server-i] Starting resource qb-inventory
+[18:36:41] [citizen-server-i] Started resource qb-inventory
+[18:36:41] [citizen-server-i] Starting resource qb-jewelery
+[18:36:41] [citizen-server-i] Started resource qb-jewelery
+[18:36:41] [citizen-server-i] Starting resource qb-lapraces
+[18:36:41] [citizen-server-i] Started resource qb-lapraces
+[18:36:41] [citizen-server-i] Starting resource qb-loading
+[18:36:41] [citizen-server-i] Started resource qb-loading
+[18:36:41] [citizen-server-i] Starting resource qb-management
+[18:36:41] [citizen-server-i] Started resource qb-management
+[18:36:41] [citizen-server-i] Starting resource qb-mechanicjob
+[18:36:41] [citizen-server-i] Rsc7 file stream/vehicle_paint_ramps.ytd in resource qb-mechanicjob has version 13, expected 5. Skipping cache generation for this file.
+[18:36:41] [citizen-server-i] Started resource qb-mechanicjob
+[18:36:41] [citizen-server-i] Starting resource qb-menu
+[18:36:41] [citizen-server-i] Started resource qb-menu
+[18:36:41] [citizen-server-i] Starting resource qb-multicharacter
+[18:36:41] [citizen-server-i] Started resource qb-multicharacter
+[18:36:41] [citizen-server-i] Starting resource qb-newsjob
+[18:36:41] [citizen-server-i] Started resource qb-newsjob
+[18:36:41] [citizen-server-i] Starting resource qb-pawnshop
+[18:36:41] [citizen-server-i] Started resource qb-pawnshop
+[18:36:41] [citizen-server-i] Starting resource qb-phone
+[18:36:41] [citizen-server-i] Started resource qb-phone
+[18:36:41] [citizen-server-i] Starting resource qb-policejob
+[18:36:42] [citizen-server-i] Started resource qb-policejob
+[18:36:42] [citizen-server-i] Starting resource qb-prison
+[18:36:42] [citizen-server-i] Started resource qb-prison
+[18:36:42] [citizen-server-i] Starting resource qb-radialmenu
+[18:36:42] [citizen-server-i] Rsc7 file stream/prop_ld_binbag_01+hidr.ytd in resource qb-radialmenu has version 13, expected 5. Skipping cache generation for this file.
+[18:36:42] [citizen-server-i] Rsc7 file stream/prop_ld_binbag_01.ydr in resource qb-radialmenu has version 165, expected 159. Skipping cache generation for this file.
+[18:36:42] [citizen-server-i] Rsc7 file stream/prop_ld_binbag_01.yft in resource qb-radialmenu has version 162, expected 171. Skipping cache generation for this file.
+[18:36:42] [citizen-server-i] Started resource qb-radialmenu
+[18:36:42] [citizen-server-i] Starting resource qb-recyclejob
+[18:36:42] [citizen-server-i] Started resource qb-recyclejob
+[18:36:42] [citizen-server-i] Starting resource qb-scoreboard
+[18:36:42] [citizen-server-i] Started resource qb-scoreboard
+[18:36:42] [citizen-server-i] Starting resource qb-scrapyard
+[18:36:42] [citizen-server-i] Started resource qb-scrapyard
+[18:36:42] [citizen-server-i] Starting resource qb-shops
+[18:36:42] [citizen-server-i] Started resource qb-shops
+[18:36:42] [citizen-server-i] Starting resource qb-smallresources
+[18:36:42] [citizen-server-i] Started resource qb-smallresources
+[18:36:42] [citizen-server-i] Starting resource qb-storerobbery
+[18:36:42] [citizen-server-i] Started resource qb-storerobbery
+[18:36:42] [citizen-server-i] Starting resource qb-streetraces
+[18:36:42] [citizen-server-i] Command cancelrace is already registered.
+[18:36:42] [citizen-server-i] Started resource qb-streetraces
+[18:36:42] [citizen-server-i] Starting resource qb-taxijob
+[18:36:42] [citizen-server-i] Started resource qb-taxijob
+[18:36:42] [citizen-server-i] Starting resource qb-towjob
+[18:36:42] [citizen-server-i] Started resource qb-towjob
+[18:36:42] [citizen-server-i] Starting resource qb-truckrobbery
+[18:36:42] [citizen-server-i] Started resource qb-truckrobbery
+[18:36:42] [citizen-server-i] Starting resource qb-vehiclekeys
+[18:36:42] [citizen-server-i] Started resource qb-vehiclekeys
+[18:36:42] [citizen-server-i] Starting resource qb-vehiclesales
+[18:36:42] [citizen-server-i] Started resource qb-vehiclesales
+[18:36:42] [citizen-server-i] Starting resource qb-vehicleshop
+[18:36:42] [citizen-server-i] Started resource qb-vehicleshop
+[18:36:42] [citizen-server-i] Starting resource qb-vineyard
+[18:36:42] [citizen-server-i] Started resource qb-vineyard
+[18:36:42] [citizen-server-i] Starting resource qb-weed
+[18:36:42] [citizen-server-i] Started resource qb-weed
+[18:36:42] [citizen-server-i] Starting resource bob74_ipl
+[18:36:42] [citizen-server-i] Rsc7 file stream/prop_palm_fan_04_d.ydr in resource bob74_ipl has version 165, expected 159. Skipping cache generation for this file.
+[18:36:42] [citizen-server-i] Rsc7 file stream/v_24_lgb_mesh_sofa_old.ydr in resource bob74_ipl has version 165, expected 159. Skipping cache generation for this file.
+[18:36:42] [citizen-server-i] Rsc7 file stream/v_24_llga_mesh_coffeetable_old.ydr in resource bob74_ipl has version 165, expected 159. Skipping cache generation for this file.
+[18:36:42] [citizen-server-i] Started resource bob74_ipl
+[18:36:42] [citizen-server-i] Starting resource connectqueue
+[18:36:42] [    connectqueue] QUEUE:  [connectqueue] Disabling hardcap 
+[18:36:42] [    connectqueue] Script error in Native StopResource: "Failed to stop resource hardcap. Error: Resource "hardcap" not found."
+> StopResource
+> [global chunk] (connectqueue/shared/sh_queue.lua:758)
+
+[18:36:42] [citizen-server-i] Started resource connectqueue
+[18:36:42] [citizen-server-i] Starting resource interact-sound
+[18:36:42] [citizen-server-i] Started resource interact-sound
+[18:36:42] [citizen-server-i] Starting resource progressbar
+[18:36:42] [citizen-server-i] Started resource progressbar
+[18:36:42] [citizen-server-i] Starting resource safecracker
+[18:36:42] [citizen-server-i] Started resource safecracker
+[18:36:42] [citizen-server-i] Starting resource screencapture
+[18:36:43] [citizen-server-i] Started resource screencapture
+[18:36:43] [citizen-server-i] Starting resource pma-voice
+[18:36:43] [citizen-server-i] Started resource pma-voice
+[18:36:43] [citizen-server-i] Starting resource qb-radio
+[18:36:43] [citizen-server-i] Started resource qb-radio
+[18:36:43] [citizen-server-i] Starting resource dealer_map
+[18:36:43] [citizen-server-i] Rsc7 file stream/bh1_04_build004.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/bh1_04_details1.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/bh1_04_lod.ytd in resource dealer_map has version 13, expected 5. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/bh1_lod_01_04_children.ytd in resource dealer_map has version 13, expected 5. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/concess_free_patoche_det1.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/concess_free_patoche_det2.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/concess_free_patoche_det3.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/concess_free_patoche_det4.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/concess_free_patoche_shell.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/patoche_free_door1.ydr in resource dealer_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Resource 'dealer_map' references data file 'stream/patoche_cyber_list.ytyp' of type 'DLC_ITYP_REQUEST' that does not exist.
+[18:36:43] [citizen-server-i] Started resource dealer_map
+[18:36:43] [citizen-server-i] Starting resource hospital_map
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_details2.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_details3.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_doorfr3.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_hospbumpers2.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_hospital.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_hospital_txd.ytd in resource hospital_map has version 13, expected 5. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_hospseating1.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_lights2.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_lights3.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_oldlights.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_roomlights.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40_sidedr.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/v_40overlay1.ydr in resource hospital_map has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Started resource hospital_map
+[18:36:43] [citizen-server-i] Starting resource prison_canteen
+[18:36:43] [citizen-server-i] Rsc7 file stream/Prisoncanteen.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/canteen_stuff_01.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/canteen_stuff_02.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/cs6_04_canmod014.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/cs6_04_pris_dec06.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/lights_prop_01.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/plate_holder.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/prison_canteen_food_stand.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/prisoncanteen_kitchentable.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/prisoncanteen_tables.ydr in resource prison_canteen has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Started resource prison_canteen
+[18:36:43] [citizen-server-i] Starting resource prison_main
+[18:36:43] [citizen-server-i] Rsc7 file stream/Prison.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/desertos_prison.ytd in resource prison_main has version 13, expected 5. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/desertos_prison_door_01.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/dressing_room.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/dressing_room.ytd in resource prison_main has version 13, expected 5. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/gates.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/holes.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/lights_prop_02.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/lobbylights.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/lockers.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/lr_cs6_04_mainblock.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/prison_main_bars.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/prison_mirror.ydr in resource prison_main has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Resource 'prison_main' references data file 'desertos_prison_door_01_game.dat' of type 'AUDIO_GAMEDATA' that does not exist.
+[18:36:43] [citizen-server-i] Started resource prison_main
+[18:36:43] [citizen-server-i] Starting resource prison_meeting
+[18:36:43] [citizen-server-i] Rsc7 file stream/Meetingroom.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/cs6_04_emissive.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/cs6_04_emissive_lod.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/cs6_04_reception.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/meetingroom_det_01.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Rsc7 file stream/meetingroom_det_02.ydr in resource prison_meeting has version 165, expected 159. Skipping cache generation for this file.
+[18:36:43] [citizen-server-i] Started resource prison_meeting
+[18:36:45] [citizen-server-i] Starting resource fivem-map-hipster
+[18:36:45] [      mapmanager] Started map fivem-map-hipster
+[18:36:45] [citizen-server-i] Started resource fivem-map-hipster
+[18:36:45] [         oxmysql] [12.3.3-MariaDB] Database server connection established!
+[18:36:45] [citizen-server-i] ScheduleResourceTick: This native is deprecated. Script resources in FiveM for GTAV Enhanced are running on the same tick rate as the server main tick.
+[18:36:45] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.84.116:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:36:46] [         oxmysql] An update is available for oxmysql (current version: 2.14.1)
+https://github.com/overextended/oxmysql/releases/tag/v2.14.3
+[18:37:15] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:37:46] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:38:16] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:38:47] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:39:17] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:39:47] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:40:17] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:40:48] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:41:18] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:41:49] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:42:09] [    connectqueue] QUEUE: NotAGirl[license:e12a8b92d0ee09b7d83ddd3c1c934f9b5d549cba] was placed 1/1 in queue
+[18:42:10] [    connectqueue] QUEUE: NotAGirl[license:e12a8b92d0ee09b7d83ddd3c1c934f9b5d549cba] is loading into the server
+[18:42:19] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:42:49] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:43:20] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:43:50] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:44:20] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:44:50] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:45:17] [         qb-core] [qb-core:LOG] NotAGirl PLAYER SAVED!
+[18:45:18] [citizen-scriptin] Native SetPlayerRoutingBucket expected an integer but got a string. The argument[1] value was: '136'.
+[18:45:18] [qb-multicharacte] [qb-core] NotAGirl has successfully loaded!
+[18:45:21] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:45:31] [         qb-core] [qb-core:LOG] NotAGirl PLAYER SAVED!
+[18:45:51] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:46:21] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:46:45] [       qb-crypto] Crypto not found, inserting new record for qbit
+[18:46:52] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:46:58] [         qb-core] [qb-core:LOG] NotAGirl PLAYER SAVED!
+[18:47:22] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:47:52] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..
+[18:48:23] [citizen-server-i] Server list query returned an error: Cfx failed to reach the server at 171.76.80.183:30120 - check if the sv_listingIpOverride or sv_listingHostOverride in the server config is correct (https://docs.fivem.net/docs/server-manual/server-commands/#sv_listingipoverride-ip). The server might show as listed but players may not be able to connect..

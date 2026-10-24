@@ -1,0 +1,17 @@
+================================================================
+======== txAdmin v9.0.0-beta-0c782860 atop fxserver 99999 Starting - 24/10/2026, 6:20:41 pm
+================================================================
+[18:21:12][NotAGirl] created admins file
+================================================================
+======== txAdmin v9.0.0-beta-0c782860 atop fxserver 170 Starting - 24/10/2026, 6:27:48 pm
+================================================================
+================================================================
+======== txAdmin v9.0.0-beta-0c782860 atop fxserver 170 Starting - 24/10/2026, 6:29:02 pm
+================================================================
+[18:29:21][NotAGirl] logged in from 127.0.0.1 via cfxre auth
+[18:29:45][NotAGirl] Config changes: general.serverName
+[18:29:45][NotAGirl] Changing global settings via setup stepper and started Deployer.
+[18:31:03][NotAGirl] Setting recipe.
+[18:32:21][NotAGirl] Running recipe.
+[18:36:36][NotAGirl] Config changes: server.dataPath
+[18:36:36][NotAGirl] Completed and committed server deploy.
