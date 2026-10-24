@@ -1,4 +1,5 @@
 local ApartmentObjects = {}
+local PendingDoorRequests = {}
 local QBCore = exports['qb-core']:GetCoreObject({ 'Functions' })
 
 -- Functions
@@ -105,17 +106,46 @@ end)
 
 RegisterNetEvent('apartments:server:RingDoor', function(apartmentId, apartment)
     local src = source
-    if ApartmentObjects[apartment].apartments[apartmentId] ~= nil and next(ApartmentObjects[apartment].apartments[apartmentId].players) ~= nil then
-        for k, _ in pairs(ApartmentObjects[apartment].apartments[apartmentId].players) do
-            TriggerClientEvent('apartments:client:RingDoor', k, src)
-        end
+    if type(apartmentId) ~= 'string' or type(apartment) ~= 'string' then return end
+    local building = ApartmentObjects[apartment]
+    local instance = building and building.apartments and building.apartments[apartmentId]
+    if not instance or not instance.players or next(instance.players) == nil then return end
+
+    for occupant, _ in pairs(instance.players) do
+        PendingDoorRequests[occupant] = {
+            visitor = src,
+            apartmentId = apartmentId,
+            apartment = apartment,
+            expiresAt = os.time() + 30
+        }
+        TriggerClientEvent('apartments:client:RingDoor', occupant, src)
     end
 end)
 
 RegisterNetEvent('apartments:server:OpenDoor', function(target, apartmentId, apartment)
+    local src = source
+    local request = PendingDoorRequests[src]
     local OtherPlayer = exports['qb-core']:GetPlayer(target)
-    if OtherPlayer ~= nil then
-        TriggerClientEvent('apartments:client:SpawnInApartment', OtherPlayer.PlayerData.source, apartmentId, apartment)
+    if not request or request.visitor ~= tonumber(target) or request.apartmentId ~= apartmentId or request.apartment ~= apartment or request.expiresAt < os.time() then
+        PendingDoorRequests[src] = nil
+        return
+    end
+    local building = ApartmentObjects[request.apartment]
+    local instance = building and building.apartments and building.apartments[request.apartmentId]
+    if not instance or not instance.players or not instance.players[src] or not OtherPlayer then
+        PendingDoorRequests[src] = nil
+        return
+    end
+
+    PendingDoorRequests[src] = nil
+    TriggerClientEvent('apartments:client:SpawnInApartment', OtherPlayer.PlayerData.source, request.apartmentId, request.apartment)
+end)
+
+AddEventHandler('playerDropped', function()
+    local dropped = source
+    PendingDoorRequests[dropped] = nil
+    for occupant, request in pairs(PendingDoorRequests) do
+        if request.visitor == dropped then PendingDoorRequests[occupant] = nil end
     end
 end)
 
