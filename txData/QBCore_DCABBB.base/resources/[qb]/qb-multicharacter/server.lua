@@ -121,7 +121,7 @@ RegisterNetEvent('qb-multicharacter:server:createCharacter', function(data)
             Wait(10)
         until hasDonePreloading[src]
         if GetResourceState('qb-apartments') == 'started' and Apartments.Starting then
-            local randbucket = (GetPlayerPed(src) .. math.random(1, 999))
+            local randbucket = math.random(1000, 999999)
             SetPlayerRoutingBucket(src, randbucket)
             print('^2[qb-core]^7 ' .. GetPlayerName(src) .. ' has successfully loaded!')
             QBCore.Commands.Refresh(src)
