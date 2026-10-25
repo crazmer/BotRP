@@ -31,17 +31,36 @@ end
 -- Events
 
 RegisterNetEvent('qb-spawn:client:openUI', function(value)
-    SetEntityVisible(PlayerPedId(), false)
+    local ped = PlayerPedId()
+    SetEntityVisible(ped, false)
     DoScreenFadeOut(250)
     Wait(1000)
     DoScreenFadeIn(250)
+
+    -- Always reveal the spawn NUI even if new-character position data is missing.
+    -- Previously, an invalid PlayerData.position could error before SetDisplay()
+    -- and leave the player hidden on a black screen with no apartment selector.
+    SetDisplay(value)
+
     QBCore.Functions.GetPlayerData(function(PlayerData)
-        cam = CreateCamWithParams('DEFAULT_SCRIPTED_CAMERA', PlayerData.position.x, PlayerData.position.y, PlayerData.position.z + camZPlus1, -85.00, 0.00, 0.00, 100.00, false, 0)
+        local position = PlayerData and PlayerData.position
+        local x, y, z
+
+        if type(position) == 'table' and tonumber(position.x) and tonumber(position.y) and tonumber(position.z) then
+            x, y, z = tonumber(position.x), tonumber(position.y), tonumber(position.z)
+        else
+            local coords = GetEntityCoords(ped)
+            x, y, z = coords.x, coords.y, coords.z
+        end
+
+        if DoesCamExist(cam) then
+            DestroyCam(cam, true)
+        end
+
+        cam = CreateCamWithParams('DEFAULT_SCRIPTED_CAMERA', x, y, z + camZPlus1, -85.00, 0.00, 0.00, 100.00, false, 0)
         SetCamActive(cam, true)
         RenderScriptCams(true, false, 1, true, true)
     end)
-    Wait(500)
-    SetDisplay(value)
 end)
 
 RegisterNetEvent('qb-houses:client:setHouseConfig', function(houseConfig)
