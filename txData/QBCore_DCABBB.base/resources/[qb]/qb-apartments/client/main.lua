@@ -441,6 +441,15 @@ local function EnterApartment(house, apartmentId, new)
         else
             TriggerEvent('qb-interior:client:SetNewState', false)
         end
+
+        -- New characters using the starting-apartment flow never pass through
+        -- qb-multicharacter:client:closeNUIdefault, where this menu normally opens.
+        if new then
+            CreateThread(function()
+                Wait(1000)
+                TriggerEvent('qb-clothes:client:CreateFirstCharacter')
+            end)
+        end
     end, apartmentId)
 end
 
