@@ -1,122 +1,108 @@
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>QBCore - Spawnlocation</title>
-        <link rel="stylesheet" type="text/css" href="reset.css" />
-        <link rel="stylesheet" type="text/css" href="style.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
-        <script src="vue.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet" />
-    </head>
-    <body>
-        <v-app data-app>
-            <div id="app">
-                <div class="container">
-                    <div class="noselect">
-                        <div class="spawn-locations" :class="{'slide-top-fade-leave-active': show == false, 'slide-top-fade-leave-to': show == false}">
-                            <div class="spawn_locations-header">
-                                <p>
-                                    <span id="null">{{translate('where_would_you_like_to_start')}}</span>
-                                </p>
-                            </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose Spawn</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 100%; height: 100%; background: transparent; color: #f4f4f5; font-family: Arial, sans-serif; }
+    body { display: none; }
+    body.visible { display: block; }
+    #panel { position: absolute; top: 9vh; left: 4vw; width: min(390px, 90vw); max-height: 82vh; overflow-y: auto; padding: 22px; border-radius: 12px; background: rgba(18,20,25,.96); border: 1px solid rgba(255,255,255,.15); box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+    h1 { margin: 0 0 16px; font-size: 19px; letter-spacing: 1px; text-align: center; }
+    #locations { display: flex; flex-direction: column; gap: 9px; }
+    button { width: 100%; padding: 13px 14px; border: 1px solid #454955; border-radius: 7px; background: #292d36; color: #fff; font-size: 14px; text-align: left; cursor: pointer; }
+    button:hover, button.selected { background: #b83232; border-color: #e35d5d; }
+    #confirm { margin-top: 15px; text-align: center; background: #267a50; border-color: #359767; font-weight: bold; }
+    #confirm:disabled { opacity: .45; cursor: not-allowed; }
+    #message { display: none; margin-top: 12px; color: #ffc6c6; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <main id="panel" role="dialog" aria-label="Choose spawn location">
+    <h1 id="heading">WHERE WOULD YOU LIKE TO START?</h1>
+    <div id="locations"></div>
+    <button id="confirm" disabled>CONFIRM LOCATION</button>
+    <div id="message"></div>
+  </main>
+  <script>
+    (() => {
+      const locationsEl = document.getElementById('locations');
+      const confirmEl = document.getElementById('confirm');
+      const messageEl = document.getElementById('message');
+      let selected = null;
+      let isNew = false;
 
-                            <v-btn elevation="0" color="#00000000" v-if="newChar !== true" class="location" x-large v-ripple :class="{'selected': 'current' == selectedValue.type && 'current' == selectedValue.name}" @click="click_location('current', 'current')"> {{translate('last_location')}} </v-btn>
+      function post(name, data = {}) {
+        return fetch('https://qb-spawn/' + name, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+          body: JSON.stringify(data)
+        }).catch(err => {
+          messageEl.textContent = 'Could not contact spawn resource. Check F8 for errors.';
+          messageEl.style.display = 'block';
+          console.error('[qb-spawn] NUI callback failed:', name, err);
+        });
+      }
 
-                            <div v-for="(locations, locationGroupIdx) in positions">
-                                <v-btn v-for="(location, locationIdx) in locations" :key="locationGroupIdx + '-' + locationIdx" elevation="0" color="#00000000" :class="{'selected': locationGroupIdx == selectedValue.type && ((locationGroupIdx !== 'house' && locationIdx == selectedValue.name) || (locationGroupIdx == 'house' && location.house == selectedValue.name))}" class="location" x-large v-ripple @click="click_location(locationGroupIdx, locationGroupIdx == 'house' ? location.house : locationIdx)"> {{ location.label }} </v-btn>
-                            </div>
+      function addButton(label, type, name, camType) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = label || String(name || 'Spawn');
+        button.addEventListener('click', () => {
+          selected = { type, name };
+          confirmEl.disabled = false;
+          [...locationsEl.querySelectorAll('button')].forEach(b => b.classList.remove('selected'));
+          button.classList.add('selected');
+          if (camType) post('setCam', { posname: name, type: camType });
+        });
+        locationsEl.appendChild(button);
+      }
 
-                            <v-btn @click="submit_spawn" v-ripple x-large class="submit-spawn" v-if="selectedValue.type !== '' && selectedValue.name !== ''"> {{translate('confirm')}} </v-btn>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </v-app>
+      function renderLocations(data) {
+        locationsEl.replaceChildren();
+        selected = null;
+        confirmEl.disabled = true;
+        messageEl.style.display = 'none';
+        if (!isNew) addButton('Last Location', 'current', 'current', 'current');
 
-        <script>
-            const viewmodel = new Vue({
-                el: "#app",
-                vuetify: new Vuetify(),
-                data: {
-                    positions: {
-                        normal: [],
-                        appartment: [],
-                        house: [],
-                    },
+        const normal = Array.isArray(data.locations) ? data.locations : [];
+        normal.forEach((loc, i) => addButton(loc.label || ('Location ' + (i + 1)), 'normal', i, 'normal'));
+        const houses = Array.isArray(data.houses) ? data.houses : [];
+        houses.forEach(h => addButton(h.label || h.house, 'house', h.house, 'house'));
+        const apartments = data.apartments && typeof data.apartments === 'object' ? data.apartments : {};
+        Object.entries(apartments).forEach(([key, apt]) => addButton(apt.label || apt.name || key, 'appartment', key, null));
 
-                    selectedValue: {
-                        type: "",
-                        name: "",
-                    },
+        if (!locationsEl.children.length) {
+          messageEl.textContent = 'No spawn locations were provided. Check qb-spawn and qb-apartments configuration.';
+          messageEl.style.display = 'block';
+        }
+      }
 
-                    newChar: false,
-                    show: false,
-                    translations: {},
-                },
+      confirmEl.addEventListener('click', () => {
+        if (!selected) return;
+        document.body.classList.remove('visible');
+        if (selected.type === 'appartment') {
+          post('chooseAppa', { appType: selected.name });
+        } else {
+          post('spawnplayer', { spawnloc: selected.name, typeLoc: selected.type });
+        }
+      });
 
-                methods: {
-                    click_location: function (type, name) {
-                        if (type == "normal") {
-                            axios.post("https://qb-spawn/setCam", {
-                                posname: name,
-                                type: type,
-                            });
-                        }
-                        this.selectedValue = { type: type, name: name };
-                    },
-
-                    submit_spawn: function () {
-                        this.show = false;
-                        const data = this.selectedValue;
-                        if (data.type !== "appartment") {
-                            axios.post("https://qb-spawn/spawnplayer", {
-                                spawnloc: data.name,
-                                typeLoc: data.type,
-                            });
-                        } else {
-                            axios.post("https://qb-spawn/chooseAppa", {
-                                appType: data.name,
-                            });
-                        }
-                    },
-
-                    translate(phrase) {
-                        return this.translations[phrase] || `Could not find phrase: ${phrase}`;
-                    },
-                },
-
-                mounted() {
-                    window.addEventListener("message", function (event) {
-                        let data = event.data;
-                        switch (data.action) {
-                            case "showUi":
-                                viewmodel.show = data.status;
-                                viewmodel.translations = event.data.translations;
-                                break;
-
-                            case "setupLocations":
-                                viewmodel.positions = { normal: [], appartment: [], house: [] };
-                                viewmodel.selectedValue = { type: "", index: -1 };
-
-                                viewmodel.positions.normal = data.locations;
-                                viewmodel.positions.house = data.houses;
-                                viewmodel.newChar = data.isNew;
-                                break;
-
-                            case "setupAppartements":
-                                viewmodel.positions = { normal: [], appartment: [], house: [] };
-                                viewmodel.selectedValue = { type: "", index: -1 };
-
-                                viewmodel.positions.appartment = data.locations;
-                                viewmodel.newChar = data.isNew;
-                                break;
-                        }
-                    });
-                },
-            });
-        </script>
-    </body>
+      window.addEventListener('message', event => {
+        const data = event.data || {};
+        if (data.action === 'showUi') {
+          document.body.classList.toggle('visible', !!data.status);
+        } else if (data.action === 'setupAppartements') {
+          isNew = !!data.isNew;
+          renderLocations({ apartments: data.locations || {} });
+        } else if (data.action === 'setupLocations') {
+          isNew = !!data.isNew;
+          renderLocations({ locations: data.locations || [], houses: data.houses || [] });
+        }
+      });
+    })();
+  </script>
+</body>
 </html>
